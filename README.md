@@ -35,5 +35,6 @@ python -m venv .venv
 - `PLAN.md` – részletes implementációs terv és a cikktől való eltérések
 - `RUNBOOK.md` – részfeladatok, párhuzamosítás, állapot
 - `docs/ALGORITHM_API.md` – az algoritmus-alaposztály API-ja
+- `előadói_jegyzet.pdf` – előadói jegyzet a demó bemutatásához (algoritmusok, UI-elemek, GYIK)
 
 Készítők: Horánszki Patrik, Nagy Tamás (ELTE IK, MSc).
