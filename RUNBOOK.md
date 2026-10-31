@@ -32,4 +32,23 @@ Miért így: T1–T4 csak a T0-ban rögzített adattípusokra (`np.ndarray` grid
 | T1–T4 | ✅ | T1 f2e907d (71 teszt), T2 a706162 (29), T3 e998ca8 (23), T4 7f2d090 (17) |
 | M1 | ✅ | 140 teszt zöld a main-en |
 | T5 | ✅ | 053862f, 174 teszt zöld; API: docs/ALGORITHM_API.md |
-| T6–T9 | ⏳ | hullám 3 fut, 4 párhuzamos subagent |
+| T6–T9 | ✅ | T6 dc9ff0d (39 teszt), T7 8df2451+fadb5dc (34), T8 5fadd63 (25), T9 f82ba43 (28) |
+| M2 | ✅ | közös invariáns-tesztek (e500a67), 324 teszt zöld, AppTest + éles streamlit smoke OK |
+
+## Eredmény (40×40, seed 42)
+
+| Alg. | Lépések | Ágensek (összes/csúcs/végső) | Lefedés | Idő |
+|---|---|---|---|---|
+| CADENCE | 215 | 42/39/13 | 100% | 0.66 s |
+| DADENCE | 308 | 13/13/13 | 100% | 1.78 s |
+| ISDA | 787 | 16/15/15 | 100% | 0.51 s |
+
+Cikk trendje visszajön: CADENCE legkevesebb lépés, DADENCE legkevesebb ágens, ISDA legtöbb lépés.
+
+## Futtatás
+
+```
+.venv\Scripts\streamlit run app.py
+.venv\Scripts\python cli.py --size 40 40 --seed 42 --algo dadence --gif out.gif
+.venv\Scripts\python -m pytest -q
+```

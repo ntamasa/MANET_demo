@@ -311,7 +311,7 @@ F = coverage(xd ∪ A);  B = border(F)
 return True
 ```
 Részletek:
-- Ütközésmentesség: foglalt cellába senki nem deklarálhat lépést (még ha a foglaló el is lépne) → a visszavonás sosem okoz ütközést; a "vonat" így lépésenként halad.
+- Ütközésmentesség (implementált, cikk Alg. 2 szerint): egy ágens oda léphet, ahonnan egy korábban feldolgozott ágens ugyanebben a lépésben ellépett ("vonat"); deklarált célcellák egyediek; ha egy ágens lépését visszavonjuk, a mögötte a cellájába lépőké is visszavonódik. (Az eredeti szigorú szabály – foglalt cellába soha – a legtöbb 30×30+ pályán elakadt.) Feldolgozási sorrend: x*-hoz legközelebbi előbb, döntetlen seedelt véletlennel.
 - Ha minden ágens összes kimenő éle elfogyott (pruned) és nincs spawn lehetőség → `stall` nő → stall_limit-nél leáll (7.).
 - Deallokáció csak a végén (cikk IV-C: DADENCE-ben nincs terminális ágens a lefedés előtt).
 
@@ -491,4 +491,8 @@ Opcionális extra (nem kötelező): `--quadtree` – kvadfa-csomópontszám (cik
 | ISDA frontier | véletlen border cella (seed) | cikk V-B.3 |
 | Ágensszám | `xd` pseudo-agent nélkül; UI-ban "+1 xd" jelölve | cikk ábráiban beleszámolják |
 | Tmax alapérték | `100 · max(H, W)` | cikk: 50→5k, 100→10k, 250→30k (közelítés) |
+| DADENCE ütközés | "vonat"-lépés engedett (lásd §8.2) | cikk Alg. 2 (A′ halmaz); szigorú változat elakadt |
+| ISDA célválasztás | csak lefedett területen át elérhető border cella | különben a hálózat szétszakadhat (seed 2) |
+| CADENCE deallokáció | a megérkezést követő lépés elején, ha senki nem MOVING | visszatérő ágens ne lépjen 2 cellát egy lépésben |
+| BSP vágás | levél vágható, ha oldala ≥ 2·room_min+1 | különben 15×15 sosem vágódik (Assumption 2) |
 | Kickoff vs. cikk | ütközés nincs érdemben; minden képlet (Eq. 1/3, Def. 8) a cikkből | felhasználói utasítás |
