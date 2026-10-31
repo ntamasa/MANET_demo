@@ -203,9 +203,9 @@ class Dadence(Algorithm):
         for i in sorted(pending):
             if i not in pending:
                 continue
-            pending.discard(i)
-            if declared[i] in occ:   # target still occupied: blocked, not pruned
+            if declared[i] in occ:   # target still occupied: blocked (may still join its leader's train)
                 continue
+            pending.discard(i)
             train = [i]
             j = follower.get(orig[i])
             while j is not None and j in pending:
