@@ -28,4 +28,5 @@ Miért így: T1–T4 csak a T0-ban rögzített adattípusokra (`np.ndarray` grid
 
 | ID | Állapot | Megjegyzés |
 |---|---|---|
-| T0 | ⏳ | |
+| T0 | ✅ | commit a9a0dc2 |
+| T1–T4 | ⏳ | hullám 1 fut, 4 párhuzamos subagent, külön worktree |
