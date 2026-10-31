@@ -7,7 +7,17 @@ Véletlen ortogonális „dungeon” pályán mobil ágensek építenek összef�
 
 **Algoritmusok:** CADENCE (centralizált, valid 270°-os sarkok), DADENCE (decentralizált, közös cél + queue-jump), ISDA (frontier baseline) – opcionális greedy deallokációval.
 
-## Telepítés
+## Gyors indítás (Windows)
+
+Repó letöltése után: dupla katt a `run.cmd`-re, vagy PowerShellben:
+
+```
+powershell -ExecutionPolicy Bypass -File .un.ps1
+```
+
+A script lépésenként naplóz: ellenőrzi / telepíti a Pythont (>= 3.10, winget vagy python.org), létrehozza a `.venv`-et, telepíti a csomagokat, importtesztet futtat, elindítja a Streamlit szervert és megnyitja a demót az alapértelmezett böngészőben. Leállítás: Ctrl+C. Kapcsolók: `-Port 8600`, `-NoBrowser`, `-SetupOnly`.
+
+## Telepítés (kézi)
 
 ```
 python -m venv .venv
